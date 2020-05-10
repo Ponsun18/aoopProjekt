@@ -1,5 +1,5 @@
 package Projekt;
-
+// hej Nivve
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +32,7 @@ public class asd extends JFrame implements ActionListener {
 		test3 = new JButton("test3");
 		test4 = new JButton("test4");
 		test5 = new JButton("test5");
-
+ 
 		p.add(Sofa);
 		p.add(Bed);
 		p.add(Desk);
