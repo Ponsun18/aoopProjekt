@@ -1,9 +1,7 @@
 package Projekt;
-<<<<<<< HEAD
-=======
 
 // hej Nivve
->>>>>>> 118ac1186de730a3a89a35966ad8fac5f3439df7
+// Detta är ett test av Nive
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
