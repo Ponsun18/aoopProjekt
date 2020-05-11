@@ -176,11 +176,10 @@ public class asd extends JFrame implements ActionListener {
 	// for your sake dont look at his, since i had to create one for each
 	// furniture.....
 	public static void jlMouseDraggedS(java.awt.event.MouseEvent evt) {
-		int x = evt.getXOnScreen();
-		int y = evt.getYOnScreen();
-		x2 = x;
-		y2 = y;
-		jlS.setLocation(x - xmouse, y - ymouse); // here is the problem, if i change jl to this. and the method to
+		 x2 = evt.getXOnScreen();
+		y2 = evt.getYOnScreen();
+	
+		jlS.setLocation(x2 - xmouse, y2 - ymouse); // here is the problem, if i change jl to this. and the method to
 													// public void, then it will
 		// complain in row 76 hmm, how i solve this dilemma.
 	}
@@ -196,11 +195,9 @@ public class asd extends JFrame implements ActionListener {
 	}
 
 	public static void jlMouseDraggedB(java.awt.event.MouseEvent evt) {
-		int x = evt.getXOnScreen();
-		int y = evt.getYOnScreen();
-		x2 = x;
-		y2 = y;
-		jlB.setLocation(x - xmouse, y - ymouse);
+		 x2 = evt.getXOnScreen();
+		 y2 = evt.getYOnScreen();
+		jlB.setLocation(x2 - xmouse, y2 - ymouse);
 	}
 
 	public static void jlMousePressedB(java.awt.event.MouseEvent evt) {
@@ -209,11 +206,10 @@ public class asd extends JFrame implements ActionListener {
 	}
 
 	public static void jlMouseDraggedD(java.awt.event.MouseEvent evt) {
-		int x = evt.getXOnScreen();
-		int y = evt.getYOnScreen();
-		x2 = x;
-		y2 = y;
-		jlD.setLocation(x - xmouse, y - ymouse);
+		 x2 = evt.getXOnScreen();
+		 y2 = evt.getYOnScreen();
+
+		jlD.setLocation(x2 - xmouse, y2 - ymouse);
 	}
 
 	public static void jlMousePressedD(java.awt.event.MouseEvent evt) {
@@ -222,11 +218,10 @@ public class asd extends JFrame implements ActionListener {
 	}
 
 	public static void jlMouseDraggedC(java.awt.event.MouseEvent evt) {
-		int x = evt.getXOnScreen();
-		int y = evt.getYOnScreen();
-		x2 = x;
-		y2 = y;
-		jlC.setLocation(x - xmouse, y - ymouse);
+		 x2 = evt.getXOnScreen();
+		 y2 = evt.getYOnScreen();
+
+		jlC.setLocation(x2 - xmouse, y2 - ymouse);
 	}
 
 	public static void jlMousePressedC(java.awt.event.MouseEvent evt) {
