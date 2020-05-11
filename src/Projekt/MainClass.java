@@ -1,4 +1,5 @@
 package Projekt;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Graphics;
@@ -11,77 +12,99 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-
-public class MainClass extends JFrame {
-  DisplayCanvas canvas;
-
-  public MainClass() {
-    super();
-    Container container = getContentPane();
-
-    canvas = new DisplayCanvas();
-    container.add(canvas);
-
-    addWindowListener(new WindowAdapter() {
-      public void windowClosing(WindowEvent e) {
-        System.exit(0);
-      }
-    });
-    setSize(900, 900);
-    setVisible(true);
-  }
-
-  public static void main(String arg[]) {
-    new MainClass();
-  }
-}
-
-class DisplayCanvas extends JPanel {
-  int x, y;
-
-  BufferedImage bi;
-
-  DisplayCanvas() {
-    setBackground(Color.white);
-    setSize(900, 900);
-    addMouseMotionListener(new MouseMotionHandler());
-
-    Image image = getToolkit().getImage("bed.png");
-
-    MediaTracker mt = new MediaTracker(this);
-    mt.addImage(image, 1);
-    try {
-      mt.waitForAll();
-    } catch (Exception e) {
-      System.out.println("Exception while loading image.");
-    }
-
-    if (image.getWidth(this) == -1) {
-      System.out.println("no gif file");
-      System.exit(0);
-    }
-
-    bi = new BufferedImage(image.getWidth(this), image.getHeight(this),
-        BufferedImage.TYPE_INT_ARGB);
-    Graphics2D big = bi.createGraphics();
-    big.drawImage(image, 0, 0, this);
-  }
-
-  public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-    Graphics2D g2D = (Graphics2D) g;
-
-    g2D.drawImage(bi, x, y, this);
-  }
-
-  class MouseMotionHandler extends MouseMotionAdapter {
-    public void mouseDragged(MouseEvent e) {
-      x = e.getX();
-      y = e.getY();
-      repaint();
-    }
-  }
+	
+public class MainClass {
+	static int x2;
+	static int y2;
+	static int xmouse;
+	static int ymouse;
+	 static JLabel jl;
+	 static JLabel jlsofa;
+	public static void main(String[] args) {
+	JFrame f = new JFrame();
+	JPanel p = new JPanel();
+	 jl = new JLabel();
+	f.setSize(800, 800);
+	ImageIcon test = new ImageIcon("chair.jpg");
+	Image test2 = test.getImage();
+	Image testM = test2.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+	test = new ImageIcon(testM);
+	jl.setIcon(test);
+	jl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+		public void mouseDragged(java.awt.event.MouseEvent evt) {
+			jlMouseDragged(evt);
+		}
+	});
+	jl.addMouseListener(new java.awt.event.MouseAdapter() {
+		public void mousePressed(java.awt.event.MouseEvent evt) {
+			jlMousePressed(evt);
+		}
+		public void mouseClicked(java.awt.event.MouseEvent evt) {
+			jlMouseClicked(evt);
+		}
+	});
+	p.add(jl);
+	/*////// --------------------------------------------------------
+	jlsofa = new JLabel();
+		ImageIcon asd = new ImageIcon("sofa.png");
+		Image asd1 = asd.getImage();
+		Image m1 = asd1.getScaledInstance(10, 10, java.awt.Image.SCALE_SMOOTH);
+		test = new ImageIcon(m1);
+		jlsofa.setIcon(asd);
+		jlsofa.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+			public void mouseDragged(java.awt.event.MouseEvent evt) {
+				jlMouseDragged1(evt);
+			}
+		});
+		jlsofa.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				jlMousePressed1(evt);
+			}
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				jlMouseClicked1(evt);
+			}
+		});
+		p.add(jlsofa);
+		/////////-----------------------------------------------------
+	*/
+	f.getContentPane().add(p, BorderLayout.CENTER );
+	f.setVisible(true);
+	}
+	 public static void jlMouseDragged(java.awt.event.MouseEvent evt) {
+		 int x = evt.getXOnScreen();
+		 int y = evt.getYOnScreen();
+		 x2 = x;
+		 y2 = y;
+		 jl.setLocation(x-xmouse, y-ymouse);
+	 }
+	 public static void jlMousePressed(java.awt.event.MouseEvent evt) {
+		 xmouse = evt.getX();
+		 ymouse = evt.getY();
+	 }
+	 public static void jlMouseClicked(java.awt.event.MouseEvent evt) {
+		 Border empty = BorderFactory.createEmptyBorder();
+	 }
+	 /*
+	 public static void jlMouseDragged1(java.awt.event.MouseEvent evt) {
+		 int x = evt.getXOnScreen();
+		 int y = evt.getYOnScreen();
+		 x2 = x;
+		 y2 = y;
+		 jlsofa.setLocation(x-xmouse, y-ymouse);
+	 }
+	 public static void jlMousePressed1(java.awt.event.MouseEvent evt) {
+		 xmouse = evt.getX();
+		 ymouse = evt.getY();
+	 }
+	 public static void jlMouseClicked1(java.awt.event.MouseEvent evt) {
+		 Border empty = BorderFactory.createEmptyBorder();
+	 }
+	 */
 }
