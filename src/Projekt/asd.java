@@ -138,7 +138,7 @@ public class asd extends JFrame implements ActionListener {
 		p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
 		f.setSize(900, 900);
 		// calls for the buttons to be set
-		asd test = new asd();
+		//asd test = new asd(); används inte ------TABORT? komenterat nu lägget
 		// calls for the room layout to be set
 		Base t = new Base();
 	
@@ -147,8 +147,7 @@ public class asd extends JFrame implements ActionListener {
 		
 		
 		ImagePanel panel = new ImagePanel(
-		        new ImageIcon("rlo.png").getImage()
-		        );
+		        new ImageIcon("rlo.png").getImage());
 		//    f.getContentPane().add(panel);							// 
 		 //   f.add(p);												// both works, but i think the problem is when the GUI updates, for 
 		    														// the picture to arrive, then the
@@ -170,25 +169,25 @@ public class asd extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == Sofa) {
 			System.out.println("Your PRessed Sofa");
-			jlS = new JLabel();
+			JLabel jlS = new JLabel();
 			picture(jlS, "sofa.png");
 			// picture("sofa.png");
 		}
 		if (arg0.getSource() == Bed) {
 			System.out.println("Your PRessed Bed");
-			jlB = new JLabel();
+			JLabel jlB = new JLabel();
 			picture(jlB, "bed.png");
 			// picture("bed.png");
 		}
 		if (arg0.getSource() == Desk) {
 			System.out.println("Your PRessed Desk");
-			jlD = new JLabel();
+			JLabel jlD = new JLabel();
 			picture(jlD, "desk.png");
 			// picture("desk.png");
 		}
 		if (arg0.getSource() == chair) {
 			System.out.println("Your PRessed Chair");
-			jlC = new JLabel();
+			JLabel jlC = new JLabel();
 			picture(jlC, "chair.jpg");
 			// picture("chair.jpg");
 		}
@@ -212,7 +211,7 @@ public class asd extends JFrame implements ActionListener {
 	}
 
 	public static void jlMouseClickedS(java.awt.event.MouseEvent evt) {
-		 Border empty = BorderFactory.createEmptyBorder();
+		 Border empty = BorderFactory.createEmptyBorder(); // - Denna gör väll inget ?
 
 	}
 
