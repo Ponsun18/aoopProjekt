@@ -1,7 +1,6 @@
 package Projekt;
 
-// hej Nivve
-// Detta är ett test av Nive
+//hhmmmm
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
