@@ -1,11 +1,12 @@
 package Projekt;
 
-//hhmmmm
+// hej Nivve
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 // adds the buttons frames, panels
 public class asd extends JFrame implements ActionListener {
@@ -20,10 +21,12 @@ public class asd extends JFrame implements ActionListener {
 	private static JButton test5;
 	private static JFrame f;
 	private static JPanel p;
+	private static JPanel p1;
 	static JLabel jlS;
 	static JLabel jlB;
 	static JLabel jlD;
 	static JLabel jlC;
+	static JLabel jl;
 	static int x2;
 	static int y2;
 	static int xmouse;
@@ -75,7 +78,7 @@ public class asd extends JFrame implements ActionListener {
 		test = new ImageIcon(testM);
 		newS.setIcon(test);
 
-		// add mouse shit
+		// add mouse shit // behöver ha olika för alla möbler, då allt e fucked up statics, o kan inte ändra tillbaka :(
 		newS.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
 			public void mouseDragged(java.awt.event.MouseEvent evt) {
 				if (funrniture == "sofa.png") {
@@ -115,7 +118,7 @@ public class asd extends JFrame implements ActionListener {
 
 		// end mouse shit
 		p.add(newS, "Center");
-		f.getContentPane().add(p, BorderLayout.WEST);
+		//f.getContentPane().add(p, BorderLayout.WEST);   // behövs denna*? hmmm
 		p.updateUI();
 	}
 
@@ -124,10 +127,13 @@ public class asd extends JFrame implements ActionListener {
 
 		f = new JFrame("Border Layout");
 		p = new JPanel();
+		p1 = new JPanel();
 		jlS = new JLabel();
 		jlB = new JLabel();
 		jlD = new JLabel();
 		jlC = new JLabel();
+		
+		
 		p.setLayout(new GridLayout(6, 2));
 		p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
 		f.setSize(900, 900);
@@ -135,13 +141,31 @@ public class asd extends JFrame implements ActionListener {
 		asd test = new asd();
 		// calls for the room layout to be set
 		Base t = new Base();
-		f.getContentPane().add(p, BorderLayout.WEST);
+	
+		//-----------------------------
+		
+		
+		
+		ImagePanel panel = new ImagePanel(
+		        new ImageIcon("rlo.png").getImage()
+		        );
+		//    f.getContentPane().add(panel);							// 
+		 //   f.add(p);												// both works, but i think the problem is when the GUI updates, for 
+		    														// the picture to arrive, then the
+		    														//  background image gets deleted or overwritten
+		    
+		    
+		  
+		//---------------------------
+		
+		//if the two lines below are commented,
+		
 		f.getContentPane().add(t, BorderLayout.CENTER);
-		// f.getContentPane().add(b, BorderLayout.WEST);
-
+		f.getContentPane().add(p, BorderLayout.WEST);
+		
 		f.setVisible(true);
 	}
-
+ // if you press a button, and depending on which button you press, it calls the picture with different jlabels and different pictures
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == Sofa) {
@@ -174,10 +198,10 @@ public class asd extends JFrame implements ActionListener {
 	// for your sake dont look at his, since i had to create one for each
 	// furniture.....
 	public static void jlMouseDraggedS(java.awt.event.MouseEvent evt) {
-		 x2 = evt.getXOnScreen();
+		x2= evt.getXOnScreen();
 		y2 = evt.getYOnScreen();
-	
-		jlS.setLocation(x2 - xmouse, y2 - ymouse); // here is the problem, if i change jl to this. and the method to
+
+		jlS.setLocation(x2- xmouse, y2 - ymouse); // here is the problem, if i change jl to this. and the method to
 													// public void, then it will
 		// complain in row 76 hmm, how i solve this dilemma.
 	}
@@ -188,7 +212,7 @@ public class asd extends JFrame implements ActionListener {
 	}
 
 	public static void jlMouseClickedS(java.awt.event.MouseEvent evt) {
-		// Border empty = BorderFactory.createEmptyBorder();
+		 Border empty = BorderFactory.createEmptyBorder();
 
 	}
 
@@ -218,7 +242,8 @@ public class asd extends JFrame implements ActionListener {
 	public static void jlMouseDraggedC(java.awt.event.MouseEvent evt) {
 		 x2 = evt.getXOnScreen();
 		 y2 = evt.getYOnScreen();
-
+		 
+		
 		jlC.setLocation(x2 - xmouse, y2 - ymouse);
 	}
 
